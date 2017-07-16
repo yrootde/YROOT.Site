@@ -1,0 +1,22 @@
+{
+    "description": "",
+    "type": "neos-site",
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes": "*"
+    },
+    "suggest": {
+        "neos/seo": "*"
+    },
+    "name": "yroot/site",
+    "autoload": {
+        "psr-4": {
+            "YROOT\\Site\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "YROOT.Site"
+        }
+    }
+}
