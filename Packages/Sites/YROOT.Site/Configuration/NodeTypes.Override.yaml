@@ -1,0 +1,9 @@
+'Neos.Neos:Document':
+  options:
+    fusion:
+      prototypeGenerator: YROOT\Site\Generators\DefaultDocumentPrototypeGenerator
+
+'Neos.Neos:Content':
+  options:
+    fusion:
+      prototypeGenerator: YROOT\Site\Generators\DefaultContentPrototypeGenerator

@@ -1,0 +1,3 @@
+prototype(YROOT.Site:SimpleTemplate) {
+    @class = "\\YROOT\\Site\\FusionObjects\\TemplateImplementation";
+}
