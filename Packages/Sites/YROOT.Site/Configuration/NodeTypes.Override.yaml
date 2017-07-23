@@ -1,4 +1,7 @@
 'Neos.Neos:Document':
+  superTypes:
+    'YROOT.Site:Seo.OpenGraphMixin': true
+    'YROOT.Site:Seo.TwitterCardMixin': true
   options:
     fusion:
       prototypeGenerator: YROOT\Site\Generators\DefaultDocumentPrototypeGenerator
