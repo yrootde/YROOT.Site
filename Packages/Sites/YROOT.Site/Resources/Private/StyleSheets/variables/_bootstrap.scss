@@ -1,0 +1,8 @@
+%scope {
+    @import "../../../../node_modules/bootstrap/scss/variables";
+
+
+    $brand-primary: $purple !global;
+    $enable-rounded: false !global;
+
+}
