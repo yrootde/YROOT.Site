@@ -1,0 +1,13 @@
+
+'YROOT.Site:Page':
+  superTypes:
+    'Neos.Neos:Document': true
+    'Neos.NodeTypes:Page': true
+  ui:
+    label: 'Page'
+    
+'YROOT.Site:Page.Root':
+  superTypes:
+    'YROOT.Site:Page': true
+  ui:
+    label: 'Root'

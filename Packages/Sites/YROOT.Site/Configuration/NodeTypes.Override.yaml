@@ -7,3 +7,7 @@
   options:
     fusion:
       prototypeGenerator: YROOT\Site\Generators\DefaultContentPrototypeGenerator
+
+
+'Neos.NodeTypes:Page':
+  abstract: true

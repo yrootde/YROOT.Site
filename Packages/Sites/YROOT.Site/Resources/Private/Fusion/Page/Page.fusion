@@ -1,0 +1,8 @@
+prototype(YROOT.Site:Page.Document) < prototype(YROOT.Site:Page.Abstract)
+
+prototype(YROOT.Site:Page) {
+    menu = YROOT.Site:Page.Components.MainMenu
+    main = PrimaryContent {
+        nodePath = 'main'
+    }
+}
