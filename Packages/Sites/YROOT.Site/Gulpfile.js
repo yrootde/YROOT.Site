@@ -4,59 +4,74 @@ var sassGlob = require('gulp-sass-glob');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
-var concatJs = require('gulp-concat');
+var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 
 // Input configuration
-var inputAssets = [
+
+var paths = {
+	'private': './Resources/Private/',
+	'public': './Resources/Public/Assets/',
+	'npm': './node_modules/',
+};
+
+var input = {
+	scss: [
+		paths.private + 'StyleSheets/all.scss',
+		paths.private + 'Fusion/**/*.scss'
+	],
+	js: [
+		paths.private + 'JavaScript/all.js'
+	],
+	assets: [
+
+	],
+};
+
+var watch = {
+	scss: [
+		paths.private + 'StyleSheets/*.scss',
+		paths.private + 'StyleSheets/**/*.scss',
+		paths.private + 'Fusion/**/*.scss'
+	],
+	js: [
+		paths.private + 'JavaScript/**/*.js'
+	],
+	html: [
+		paths.private + 'Fusion/**/*.html'
+	],
+}
+
+var includeScss = [
+	paths.npm + 'bootstrap/scss'
 ];
-var inputJs = [
-	'./Resources/Private/JavaScript/all.js'
-];
 
-var watchJs = [
-	'./Resources/Private/JavaScript/**/*.js'
-];
+var buildTasks = ['js', 'scss', 'assets'];
 
-var inputScss = [
-	'./Resources/Private/StyleSheets/all.scss',
-	'./Resources/Private/Fusion/**/*.scss'
-];
-var watchScss = [
-	'./Resources/Private/StyleSheets/*.scss',
-	'./Resources/Private/StyleSheets/**/*.scss',
-	'./Resources/Private/Fusion/**/*.scss'
-];
-
-var watchHtml= [
-	'./Resources/Private/Fusion/**/*.html'
-];
-
-var allTasks = ['js', 'scss', 'assets'];
-var output =     './Resources/Public/Assets';
-
-
-
-gulp.task('serve', allTasks, function () {
+gulp.task('serve', buildTasks, function () {
 	browserSync.init({
 		proxy: 'localhost:8000'
 	});
 
-	gulp.watch(watchScss, ['scss'])
+	gulp.watch(watch.scss, ['scss'])
 		.on('change', function (event) {
-			browserSync.reload();
+			browserSync.reload({
+				stream: true
+			});
 			console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 		});
 
-	gulp.watch(watchJs, ['js'])
+	gulp.watch(watch.js, ['js'])
 		.on('change', function (event) {
-			browserSync.reload();
+			browserSync.reload({
+				stream: true
+			});
 			console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 		});
 
-	gulp.watch(watchHtml)
+	gulp.watch(watch.html)
 		.on('change', function (event) {
 			browserSync.reload();
 			console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
@@ -65,28 +80,32 @@ gulp.task('serve', allTasks, function () {
 
 gulp.task('assets', function () {
 	return gulp
-		.src(inputAssets)
-		.pipe(gulp.dest(output));
+		.src(input.assets)
+		.pipe(gulp.dest(paths.public));
 });
 
 gulp.task('js', function () {
 	return gulp
-		.src(inputJs)
+		.src(input.js)
 		.pipe(sourcemaps.init())
-		.pipe(concatJs('bundle.js'))
+		.pipe(concat('bundle.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(output));
+		.pipe(gulp.dest(paths.public));
 });
 
 gulp.task('scss', function () {
 	return gulp
-		.src(inputScss)
+		.src(input.scss)
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			includePahts: includeScss,
+			outputStyle: 'compressed'
+		}).on('error', sass.logError))
+		.pipe(concatCss('bundle.css'))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(output));
+		.pipe(gulp.dest(paths.public));
 });
 
 gulp.task('default', ['serve']);
-gulp.task('build', allTasks);
+gulp.task('build', buildTasks);
