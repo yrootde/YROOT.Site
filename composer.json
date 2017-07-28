@@ -18,23 +18,22 @@
     "require": {
         "neos/neos": "~3.1.0",
         "neos/nodetypes": "~3.1.0",
-        "neos/site-kickstarter": "~3.1.0",
-
         "neos/seo": "~2.0",
         "neos/setup": "~4.0",
         "flowpack/neos-frontendlogin": "~3.0",
         "neos/redirecthandler-neosadapter": "~2.0",
-        "neos/redirecthandler-databasestorage": "~2.0"
+        "neos/redirecthandler-databasestorage": "~2.0",
+
+        "neos/neos-ui": "^1.0@beta",
+        "neos/neos-ui-compiled": "^1.0@beta"
     },
     "require-dev": {
         "neos/buildessentials": "~4.1.0",
         "mikey179/vfsstream": "~1.6",
         "phpunit/phpunit": "~6.0.0",
         "symfony/css-selector": "~2.0",
-        "neos/behat": "dev-master",
+        "neos/behat": "dev-master"
         
-        "neos/neos-ui": "^1.0@beta",
-        "neos/neos-ui-compiled": "^1.0@beta"
     },
     "replace": {
         "typo3/neos-base-distribution": "3.1.3"
