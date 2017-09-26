@@ -1,0 +1,11 @@
+Neos:
+  Flow:
+    resource:
+      targets:
+        localWebDirectoryPersistentResourcesTarget:
+          targetOptions:
+            baseUri: '//img.yroot.io/_Resources/Persistent/'
+        
+        localWebDirectoryStaticResourcesTarget:
+          targetOptions:
+            baseUri: '//static.yroot.io/_Resources/Static/Packages/'
