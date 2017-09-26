@@ -1,14 +1,50 @@
 Neos:
+  Flow:
+    mvc:
+      routes:
+        'Flowpack.Listable':
+          variables:
+            pageSeparator: '/page/'
+  
   ContentRepository:
     contentDimensions:
       language:
+        label: 'YROOT.Site:Main:contentDimensions.language'
         icon: icon-language
         default: de
         defaultPreset: de
         presets:
           all: null
           de:
-            label: Deutsch
+            label: DE
             values:
               - de
             uriSegment: de
+          en:
+            label: EN
+            values:
+              - en
+            uriSegment: en
+  Neos:
+    routing:
+      supportEmptySegmentForDimensions: FALSE
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          loadingDepth: 1
+      translation:
+        autoInclude:
+          YROOT.Site:
+            - Main
+            - 'NodeTypes/*'
+    nodeTypes:
+      groups:
+        blog:
+          label: 'Blog'
+          position: 500
+          icon: 'icon-hashtag'
+
+  Seo:
+    twitterCard:
+      siteHandle: '@yrootde'
+
