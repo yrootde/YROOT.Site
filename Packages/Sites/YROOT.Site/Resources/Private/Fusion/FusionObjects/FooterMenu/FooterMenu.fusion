@@ -1,0 +1,12 @@
+prototype(YROOT.Site:FooterMenu) < prototype(Menu) {
+    templatePath = "resource://YROOT.Site/Private/Fusion/FusionObjects/FooterMenu/FooterMenu.html"
+    attributes.class = 'nav nav--stacked siteFooter__nav'
+
+    footerContainer = ${q(site).children('[instanceof YROOT.Site:FooterContainer]').first()}
+    @context.footerContainer = ${footerContainer.get(0)}
+
+    itemCollection = ${q(this.footerContainer).children('[instanceof Neos.Neos:Document]').get()}
+
+    @cache.entryIdentifier.documentNode = ${site}
+    @cache.entryTags.1 = ${'DescendantOf_' + footerContainer.identifier}
+}

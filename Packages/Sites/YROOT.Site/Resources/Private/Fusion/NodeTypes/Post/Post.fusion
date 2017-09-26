@@ -1,0 +1,17 @@
+prototype(YROOT.Site:Post.Document) < prototype(YROOT.Site:Page.Document) {
+    body {
+        content.main = YROOT.Site:PostBody
+    } 
+}
+prototype(YROOT.Site:PostBody) < prototype(YROOT.Site:PageBody) {
+    templatePath = 'resource://YROOT.Site/Private/Fusion/NodeTypes/Post/Post.html'
+
+    publishedAt = Neos.Fusion:Tag {
+        tagName = 'small'
+        content = ${Date.format(q(node).property('publishedAt').timestamp, 'd.m.Y')}
+    }
+
+    tags = YROOT.Site:TagList {
+
+    }
+}

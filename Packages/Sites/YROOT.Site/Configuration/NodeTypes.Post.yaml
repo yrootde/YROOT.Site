@@ -1,0 +1,68 @@
+'YROOT.Site:Post':
+  superTypes:
+    'YROOT.Site:Page': true
+  childNodes:
+    'main':
+      type: 'Neos.Neos:ContentCollection'
+  constraints:
+    nodeTypes:
+      '*': false    
+      'Neos.Neos:Document': false
+  ui:
+    label: 'Post'
+    group: 'blog'
+    icon: 'icon icon-newspaper-o'
+    inspector:
+      tabs:
+        blog:
+          label: i18n
+          icon: 'icon-newspaper-o'
+      groups:
+        document:
+          label: i18n
+        properties:
+          label: i18n
+          icon: 'icon-cog'
+        relatedPosts:
+          label: i18n
+          icon: 'icon-copy'
+          tab: blog
+        tags:
+          label: i18n
+          icon: 'icon-hashtag'
+          tab: blog
+  properties:
+    'title':
+      type: string
+    'publishedAt':
+      type: DateTime
+      defaultValue: now
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: properties
+          editorOptions:
+            format: 'd.m.Y H:i'
+      validation:
+        Neos.Neos/Validation/NotEmptyValidator: {  }
+        Neos.Neos/Validation/DateTimeValidator: {  }
+    'relatedPosts':
+      type: references
+      ui:
+        inspector:
+          group: relatedPosts
+          editorOptions:
+            nodeTypes:
+              - 'YROOT.Site:Post'
+    'tags':
+      type: references
+      ui:
+        inspector:
+          group: tags
+          editorOptions:
+            nodeTypes:
+              - 'YROOT.Site:Tag'
+    
+    'openGraphType':
+      defaultValue: 'article'

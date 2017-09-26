@@ -1,0 +1,14 @@
+'YROOT.Site:Folder':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Shortcut': true
+  ui:
+    label: 'Folder'
+    icon: 'icon-folder'
+    group: 'structure'
+  properties:
+    targetMode:
+      defaultValue: parentNode
+    
+    _hiddenInIndex:
+      defaultValue: true

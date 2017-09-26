@@ -1,0 +1,42 @@
+{namespace media=Neos\Media\ViewHelpers}
+
+<section class="keyVisual{f:if(condition: isFullHeight, then: ' keyVisual-fullHeight')}">
+	<div class="keyVisual-contents text-center{f:if(condition: isInverted, then: ' text-white')}"
+	data-component="ProgressiveImage"
+	data-isInline="true"
+	<f:if condition="{image}">
+		<f:then>
+			data-src="{media:uri.image(image: image, maximumWidth: 1500, maximumHeight: 1500)}"
+			data-srcSet="{imageSrcSet}"
+			style="background-image: url('{media:uri.image(image: image, maximumWidth: 20, maximumHeight: 20)}')"
+		</f:then>
+		<f:else>
+			data-src="{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-1500w.jpg', package: 'Neos.NeosIo')}"
+			data-srcSet="
+				{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-1920w.jpg', package: 'Neos.NeosIo')} 1920w,
+				{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-1280w.jpg', package: 'Neos.NeosIo')} 1280w,
+				{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-658w.jpg', package: 'Neos.NeosIo')} 658w,
+				{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-280w.jpg', package: 'Neos.NeosIo')} 280w
+			"
+			style="background-image: url('{f:uri.resource(path: 'Images/DefaultSmallKeyvisual-5w.jpg', package: 'Neos.NeosIo')}')"
+		</f:else>
+	</f:if>
+	>
+		{contents -> f:format.raw()}
+	</div>
+	<a
+		data-component="ScrollTo"
+		href="#mainContent"
+		data-targetSelector="#mainContent"
+		class="scrollHint"></a>
+</section>
+
+
+<f:section name="imageSrcSet">
+	<f:if condition="{keyVisualImage}">
+		<media:uri.image image="{keyVisualImage}" maximumWidth="1920" maximumHeight="1600" /> 1920w,
+		<media:uri.image image="{keyVisualImage}" maximumWidth="1280" maximumHeight="1000" /> 1280w,
+		<media:uri.image image="{keyVisualImage}" maximumWidth="658" maximumHeight="658" allowCropping="1" /> 658w,
+		<media:uri.image image="{keyVisualImage}" maximumWidth="400" maximumHeight="400" allowCropping="1" /> 280w
+	</f:if>
+</f:section>

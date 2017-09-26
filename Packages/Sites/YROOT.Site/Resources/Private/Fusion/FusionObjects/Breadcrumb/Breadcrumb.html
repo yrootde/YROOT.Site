@@ -1,0 +1,27 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace ts=Neos\Fusion\ViewHelpers}
+<f:if condition="{items}">
+	<div class="breadcrumbWrap mb-6">
+		<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb">
+		<f:for each="{items}" as="item" reverse="TRUE" iteration="iterator">
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"{ts:render(path: '{item.state}.attributes', context: {item: item}) -> f:format.raw()}>
+				<f:if condition="{item.state} === 'current'">
+					<f:then>
+						<span itemprop="item">
+							<link itemprop="url" href="<neos:uri.node node='{item.node}' absolute='true'/>">
+							<span itemprop="name">{item.label}</span>
+						</span>
+					</f:then>
+					<f:else>
+						<a href="<neos:uri.node node='{item.node}'/>" itemprop="item">
+							<link itemprop="url" href="<neos:uri.node node='{item.node}' absolute='true'/>">
+							<span itemprop="name">{item.label}</span>
+						</a>
+					</f:else>
+				</f:if>
+				<meta itemprop="position" content="{iterator.index}" />
+			</li>
+		</f:for>
+		</ul>
+	</div>
+</f:if>

@@ -1,0 +1,4 @@
+prototype(YROOT.Site:FooterContent) < prototype(Neos.Neos:ContentCollectionRenderer) {
+    templatePath = "resource://YROOT.Site/Private/Fusion/FusionObjects/FooterContent/FooterContent.html"
+    collection = ${q(site).children('[instanceof YROOT.Site:FooterContainer]').children('main').children().get()}
+}

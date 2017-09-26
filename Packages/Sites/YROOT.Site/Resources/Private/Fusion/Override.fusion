@@ -1,4 +1,3 @@
-prototype(Neos.Neos:Document) < prototype(YROOT.Site:SimpleTemplate) {
+prototype(Neos.Neos:Document) {
     @process.contentElementWrapping = ContentElementWrapping
 }
-prototype(Neos.Neos:Content) < prototype(YROOT.Site:SimpleTemplate)

@@ -1,11 +1,11 @@
-'YROOT.Site:Seo.OpenGraphMixin':
+'YROOT.Site:Mixin.Seo.OpenGraph':
   superTypes:
     'Neos.Seo:OpenGraphMixin': true
   properties:
     openGraphType:
       defaultValue: 'website'
 
-'YROOT.Site:Seo.TwitterCardMixin':
+'YROOT.Site:Mixin.Seo.TwitterCard':
   superTypes:
     'Neos.Seo:TwitterCardMixin' : true
   properties:

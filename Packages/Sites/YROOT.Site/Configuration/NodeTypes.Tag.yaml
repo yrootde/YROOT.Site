@@ -1,0 +1,20 @@
+'YROOT.Site:Tag':
+  superTypes:
+    'YROOT.Site:Page': true
+  childNodes:
+    'main':
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          'YROOT.Site:Section': false
+  ui:
+    label: 'Tag'
+    group: 'blog'
+    icon: 'icon-hashtag'
+  properties:
+    'title':
+      type: string
+  constraints:
+    nodeTypes:
+      '*': false    
+      'Neos.Neos:Document': false

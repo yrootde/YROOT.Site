@@ -1,0 +1,23 @@
+prototype(YROOT.Site:Post.List) < prototype(Flowpack.Listable:PaginatedCollection) {
+    collection = ${q(site).find('[instanceof YROOT.Site:Post]').filterByReference('tags', node).get()}
+
+    itemsPerPage = 12
+
+    class = 'post-list'
+    itemClass = 'post'
+
+    @cache {
+        entryDiscriminator = ${request.arguments.currentPage}
+    }
+
+    prototype(Flowpack.Listable:Collection) {
+        listClass = 'post-list'
+        itemClass = 'post'
+    }
+    prototype(Flowpack.Listable:Pagination) {
+
+        class = 'pagination'
+        itemClass = 'page-item'
+        currentItemClass = 'active'
+    }
+}

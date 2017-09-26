@@ -1,0 +1,12 @@
+prototype(YROOT.Site:Tag.Document) < prototype(YROOT.Site:Page.Document) {
+    body {
+        content.main = YROOT.Site:TagBody
+    } 
+}
+prototype(YROOT.Site:TagBody) < prototype(YROOT.Site:PageBody) {
+
+    templatePath = 'resource://YROOT.Site/Private/Fusion/NodeTypes/Tag/Tag.html'
+    postlist = YROOT.Site:Post.List {
+        #value = ${q(site)}
+    }
+}

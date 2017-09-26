@@ -1,0 +1,18 @@
+'YROOT.Site:TagCollection':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+  childNodes:
+    'main':
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          'YROOT.Site:Section': false
+  ui:
+    label: 'Tag Collection'
+    icon: 'icon-hashtag'
+    group: 'blog'
+  constraints:
+    nodeTypes:
+      '*': false    
+      'Neos.Neos:Document': false
+      'YROOT.Site:Tag': true

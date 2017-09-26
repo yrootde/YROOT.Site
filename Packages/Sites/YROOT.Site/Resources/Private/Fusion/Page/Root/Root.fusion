@@ -1,5 +1,0 @@
-prototype(YROOT.Site:Page.Root.Document) < prototype(YROOT.Site:Page.Abstract)
-prototype(YROOT.Site:Page.Root) < prototype(YROOT.Site:Page)
-
-prototype(YROOT.Site:Page.Root) {
-}

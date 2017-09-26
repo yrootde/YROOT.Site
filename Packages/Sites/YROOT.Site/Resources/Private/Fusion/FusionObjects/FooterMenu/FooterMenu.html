@@ -1,0 +1,25 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace ts=Neos\Fusion\ViewHelpers}
+
+<div class="bg-dark">
+    <div class="">
+        <div class="">
+            <ul>
+            <f:render section="itemsList" arguments="{items: items}" />
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<f:section name="itemsList">
+	<f:for each="{items}" as="item">
+		<li>
+		<neos:link.node node="{item.node}" class="nav-link" />
+		<f:if condition="{item.subItems}">
+			<ul>
+				<f:render section="itemsList" arguments="{items: item.subItems}" />
+			</ul>
+		</f:if>
+		</li>
+	</f:for>
+</f:section>

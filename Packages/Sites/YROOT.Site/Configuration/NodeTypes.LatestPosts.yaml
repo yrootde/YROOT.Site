@@ -1,0 +1,22 @@
+'YROOT.Site:LatestPosts':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: 'Latest Blog Posts'
+    group: 'blog'
+    inspector:
+      groups:
+        options:
+          label: i18n #'Options'
+          position: 30
+          icon: 'icon-sliders'
+  properties:
+    blogBase:
+      type: reference
+      filter:
+        - 'YROOT.Site:Blog'
+      ui:
+        reloadIfChanged: TRUE
+        label: i18n
+        inspector:
+          group: 'options'

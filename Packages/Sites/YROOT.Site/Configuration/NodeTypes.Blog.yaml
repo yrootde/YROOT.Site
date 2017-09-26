@@ -1,0 +1,15 @@
+'YROOT.Site:Blog':
+  superTypes:
+    'YROOT.Site:Page': true
+  ui:
+    label: 'Blog'
+    icon: 'icon-newspaper-o'
+    group: 'blog'
+  
+  constraints:
+    nodeTypes:
+      '*': false    
+      'Neos.Neos:Document': false    
+      'YROOT.Site:PostArchive': true
+      'YROOT.Site:TagCollection': true
+      'YROOT.Site:PostCollection': true   

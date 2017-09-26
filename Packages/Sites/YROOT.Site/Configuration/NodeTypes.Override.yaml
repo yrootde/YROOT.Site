@@ -1,16 +1,14 @@
 'Neos.Neos:Document':
   superTypes:
-    'YROOT.Site:Seo.OpenGraphMixin': true
-    'YROOT.Site:Seo.TwitterCardMixin': true
-  options:
-    fusion:
-      prototypeGenerator: YROOT\Site\Generators\DefaultDocumentPrototypeGenerator
-
-'Neos.Neos:Content':
-  options:
-    fusion:
-      prototypeGenerator: YROOT\Site\Generators\DefaultContentPrototypeGenerator
-
+    'YROOT.Site:Mixin.Seo.OpenGraph': true
+    'YROOT.Site:Mixin.Seo.TwitterCard': true
 
 'Neos.NodeTypes:Page':
   abstract: true
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
+          'YROOT.Site:Section': true

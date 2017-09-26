@@ -1,0 +1,12 @@
+prototype(YROOT.Site:TagCollection.Document) < prototype(YROOT.Site:Page.Document) {
+    body {
+        content.main = YROOT.Site:TagCollectionBody
+    } 
+}
+prototype(YROOT.Site:TagCollectionBody) < prototype(YROOT.Site:PageBody) {
+
+    templatePath = 'resource://YROOT.Site/Private/Fusion/NodeTypes/TagCollection/TagCollection.html'
+    postlist = Neos.Fusion:Debug {
+        value = ${q(site)}
+    }
+}

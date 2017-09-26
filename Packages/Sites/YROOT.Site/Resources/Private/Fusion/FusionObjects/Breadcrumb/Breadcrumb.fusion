@@ -1,0 +1,14 @@
+prototype(YROOT.Site:Breadcrumb) < prototype(BreadcrumbMenu) {
+    templatePath = "resource://YROOT.Site/Private/Fusion/FusionObjects/Breadcrumb/Breadcrumb.html"
+
+    active.attributes = Neos.Fusion:Attributes {
+        class = 'breadcrumb-item active'
+    }
+    current.attributes = Neos.Fusion:Attributes {
+        class = 'breadcrumb-item'
+    }
+    normal.attributes = Neos.Fusion:Attributes {
+        class = 'breadcrumb-item'
+    }
+    
+}

@@ -1,0 +1,14 @@
+prototype(YROOT.Site:KeyVisual) < prototype(Neos.Fusion:Template) {
+    templatePath = 'resource://YROOT.Site/Private/Fusion/FusionObjects/KeyVisual/KeyVisual.html'
+    image = ${(q(documentNode).property('keyVisualImage')) ? q(documentNode).property('keyVisualImage') : q(site).property('keyVisualImage')}
+    imageSrcSet = Neos.Fusion:Template {
+        templatePath = 'resource://YROOT.Site/Private/Fusion/FusionObjects/KeyVisual/KeyVisual.html'
+        sectionName = 'imageSrcSet'
+        keyVisualImage = ${(q(documentNode).property('keyVisualImage')) ? q(documentNode).property('keyVisualImage') : q(site).property('keyVisualImage')}
+    }
+    isInverted = ${q(documentNode).property('isKeyVisualContentsInverted')}
+    isFullHeight = ${q(documentNode).property('isKeyVisualFullHeight')}
+    contents = ContentCollection {
+        nodePath = 'keyVisual'
+    }
+}

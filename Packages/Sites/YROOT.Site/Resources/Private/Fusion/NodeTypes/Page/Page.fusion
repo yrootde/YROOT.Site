@@ -1,0 +1,47 @@
+prototype(YROOT.Site:Page.Document) < prototype(YROOT.Site:AbstractPage.Document) {
+    head {
+        stylesheets {
+            font = Neos.Fusion:Tag {
+                tagName = 'link'
+                attributes {
+                    rel = 'preload'
+                    as = 'font'
+                    href = '//fonts.googleapis.com/css?family=Noto+Sans:400,700'
+                }
+            }
+        }
+    }
+    body {
+        content{
+            menu = YROOT.Site:MainMenu
+            menu.@position = 1000
+            keyVisual = YROOT.Site:KeyVisual
+            keyVisual.@position = 1100
+            breadcrumb = YROOT.Site:Breadcrumb
+            breadcrumb.@position = 1200     
+            main = YROOT.Site:PageBody
+            main.@position = 2000
+            footerTag = Neos.Fusion:Tag {
+                tagName = 'footer'
+                omitClosingTag = TRUE
+
+                attributes {
+                }
+            }
+            footerTag.@position = 3000
+            footerMenu = YROOT.Site:FooterMenu
+            footerMenu.@position = 3100
+            footerContent = YROOT.Site:FooterContent
+            footerContent.@position = 3200
+            closingFooterTag = '</footer>'
+            closingFooterTag.@position = 3900
+        }
+    } 
+}
+prototype(YROOT.Site:PageBody) < prototype(Neos.Fusion:Template){
+    templatePath = 'resource://YROOT.Site/Private/Fusion/NodeTypes/Page/Page.html'
+
+    main = PrimaryContent {
+        nodePath = 'main'
+    }
+}

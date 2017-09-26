@@ -1,0 +1,13 @@
+'YROOT.Site:PostArchive':
+  superTypes:
+    'YROOT.Site:Page': true
+  ui:
+    label: 'Post Archive'
+    group: 'blog'
+    icon: 'icon icon-archive'
+  constraints:
+    nodeTypes:
+      '*': false    
+      'Neos.Neos:Document': false    
+      'YROOT.Site:Post': true
+      'YROOT.Site:PostArchive': true

@@ -1,0 +1,9 @@
+prototype(YROOT.Site:Section) < prototype(Neos.Fusion:Tag)
+prototype(YROOT.Site:Section) {
+    tagName = 'section'
+    attributes = Neos.Fusion:Attributes {
+        class = ${ (q(node).property('isFullscreen')) ? 'container' : ''}
+    }
+    content = Neos.Neos:ContentCollectionRenderer
+    content.@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
+}

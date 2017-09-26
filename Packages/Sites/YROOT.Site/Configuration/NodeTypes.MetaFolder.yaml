@@ -1,0 +1,12 @@
+'YROOT.Site:MetaFolder':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+  ui:
+    label: 'Meta Folder'
+    icon: 'icon-folder'
+    group: 'structure'
+  properties:
+    _hiddenInIndex:
+      defaultValue: true
+    targetMode:
+      defaultValue: parentNode

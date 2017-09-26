@@ -1,0 +1,9 @@
+prototype(YROOT.Site:Root.Document) < prototype(YROOT.Site:Page.Document) {
+    body {
+        content.breadcrumb >
+        content.main = YROOT.Site:RootBody
+    } 
+}
+prototype(YROOT.Site:RootBody) < prototype(YROOT.Site:PageBody) {
+ 
+}

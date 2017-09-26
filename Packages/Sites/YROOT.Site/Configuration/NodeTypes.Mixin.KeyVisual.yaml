@@ -1,0 +1,37 @@
+'YROOT.Site:Mixin.KeyVisual':
+  abstract: TRUE
+  childNodes:
+    'keyVisual':
+      type: 'Neos.Neos:ContentCollection'
+      position: 'before main'
+      constraints:
+        nodeTypes:
+          '*': FALSE
+          'Neos.NodeTypes:Headline': TRUE
+  ui:
+    inspector:
+      groups:
+        'keyVisual':
+          label: 'Keyvisual'
+          position: 10
+  properties:
+    'keyVisualImage':
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Image for the Keyvisual-Section'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'keyVisual'
+          position: 1
+    'isKeyVisualContentsInverted':
+      type: boolean
+      ui:
+        label: 'Invert the text-color for the Keyvisual contents'
+        inspector:
+          group: 'keyVisual'
+    'isKeyVisualFullHeight':
+      type: boolean
+      ui:
+        label: 'Full Height ?'
+        inspector:
+          group: 'keyVisual'

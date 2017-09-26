@@ -1,0 +1,9 @@
+prototype(YROOT.Site:Code) {
+    code = Neos.Fusion:Tag {
+        tagName = 'pre'
+        content = ${String.htmlSpecialChars(q(node).property('code'))}
+        @process.contentElementEditable = ContentElementEditable {
+            property = 'code'
+        }
+    }
+}

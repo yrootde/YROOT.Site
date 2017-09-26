@@ -1,0 +1,24 @@
+prototype(YROOT.Site:Post.Short) < prototype(Neos.Fusion:Template){
+
+    templatePath = 'resource://YROOT.Site/Private/Fusion/NodeTypes/Post.Short/Post.Short.html'
+    link = Neos.Fusion:Tag {
+        tagName = 'a'
+        content = ${q(node).property('title')}        
+        attributes.href = NodeUri {
+            node = ${node}
+        }
+    }
+    publishedAt = Neos.Fusion:Tag {
+        tagName = 'small'
+        content = ${Date.format(q(node).property('publishedAt').timestamp, 'd.m.Y')}
+    }
+    preview = YROOT.Site:PreviewText
+}
+
+
+prototype(YROOT.Site:PreviewText) < prototype(Neos.Fusion:Tag) {
+    tagName = "p"
+    @context.text = ${q(node).children("main").children().first().property("text")}
+    content = ${((String.length(text) > 512) ? String.cropAtWord(text, 512, "...") : text)}
+    content.@process.stripTags = ${String.stripTags(value)}
+}

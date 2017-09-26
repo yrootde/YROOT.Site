@@ -1,0 +1,11 @@
+
+
+    
+'YROOT.Site:Root':
+  superTypes:
+    'YROOT.Site:Page': true
+  ui:
+    label: 'Root'
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'

@@ -1,0 +1,116 @@
+prototype(YROOT.Site:AbstractPage.Document) < prototype(Page)
+prototype(YROOT.Site:AbstractPage.Document) {
+    htmlTag {
+        attributes {
+            prefix = "og: http://ogp.me/ns#"
+            class = "no-js"
+            itemscope="itemscope"
+            itemtype="http://schema.org/WebPage"
+        }
+    }
+    head {
+        titleTag {
+            attributes {
+                itemprop="name"
+            }
+        }
+        meta = Neos.Fusion:Array{
+            itemProp = Neos.Fusion:Array{
+                copyrightHolder = Neos.Fusion:Tag {
+                    tagName = 'meta'
+                    attributes {
+                        itemprop = 'copyrightHolder'
+                        content = "Demoshop"
+                    }
+                }
+                copyrightYear = Neos.Fusion:Tag {
+                    tagName = 'meta'
+                    attributes {
+                        itemprop = 'copyrightYear'
+                        content = ${Date.year(Date.now())}
+                    }
+                }
+                isFamilyFriendly = Neos.Fusion:Tag {
+                    tagName = 'meta'
+                    attributes {
+                        itemprop = 'isFamilyFriendly'
+                        content = "True"
+                    }
+                }
+                #image = Neos.Fusion:Tag {
+                #    tagName = 'meta'
+                #    attributes {
+                #        itemprop = 'image'
+                #        content = "Demoshop"
+                #    }
+                #}
+            }
+            viewport = Neos.Fusion:Tag {
+                tagName = 'meta'
+                attributes {
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                }
+            }
+        }
+        preconnect = Neos.Fusion:Array {
+            fontsGoogle = Neos.Fusion:Tag {
+                tagName = 'link'
+                attributes {
+                    rel = 'preconnect'
+                    href = '//fonts.googleapis.com'
+                    crossorigin = ''
+                }
+            }
+        }
+        preconnect.@position = 'before stylesheets'
+        stylesheets {
+            css = Neos.Fusion:Tag {
+                tagName = 'link'
+                attributes {
+                    type = 'text/css'
+                    rel = 'stylesheet'
+                    href = Neos.Fusion:ResourceUri {
+                        path = 'resource://YROOT.Site/Public/Styles/Bundle.css'
+                    }
+                }
+            }
+        }
+    }
+    body {
+        templatePath = 'resource://YROOT.Site/Private/Templates/Page/Default.html'
+        parts {
+        }
+        content = Neos.Fusion:Array {
+        }
+
+        javascripts {
+            modernizr = Neos.Fusion:Tag {
+                tagName = 'script'
+                attributes{
+                    async = ''
+                    
+                    src = Neos.Fusion:ResourceUri {
+                        path = 'resource://YROOT.Site/Public/JavaScript/Modernizr.min.js'
+                    }
+                }
+            }
+            bundle = Neos.Fusion:Tag {
+                tagName = 'script'
+                attributes{
+                    async = ''
+                    
+                    src = Neos.Fusion:ResourceUri {
+                        path = 'resource://YROOT.Site/Public/JavaScript/Bundle.min.js'
+                    }
+                }
+            }
+            googleAnalyticsTrackingCode = ${Configuration.setting('Neos.NeosIo.googleAnalyticsTrackingCode')}
+        }
+    }
+}
+
+prototype(YROOT.Site:AbstractPage) < prototype(Neos.Fusion:Template)
+prototype(YROOT.Site:AbstractPage) {
+	@process.contentElementWrapping = ContentElementWrapping
+}
