@@ -3,12 +3,13 @@
     "type": "neos-site",
     "require": {
         "neos/neos": "*",
-        "neos/nodetypes": "*"
+        "neos/nodetypes": "*",
+        "neos/seo": "*",
+        "flowpack/listable": "*"
     },
     "suggest": {
-        "neos/seo": "*"
     },
-    "name": "yroot/site",
+    "name": "yroot/neos-site",
     "autoload": {
         "psr-4": {
             "YROOT\\Site\\": "Classes/"

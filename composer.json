@@ -1,5 +1,5 @@
 {
-    "name": "neos/neos-base-distribution",
+    "name": "yroot/neos-base-distribution",
     "description": "Neos Base Distribution",
     "license": "GPL-3.0+",
     "support": {
@@ -16,16 +16,23 @@
         "bin-dir": "bin"
     },
     "require": {
-        "neos/neos": "~3.1.0",
-        "neos/nodetypes": "~3.1.0",
-        "neos/seo": "~2.0",
+        "neos/neos": "~3.2",
+        "neos/nodetypes": "~3.2",
+        "neos/media": "~3.2",
+        "neos/seo": "^2.0",
         "neos/setup": "~4.0",
-        "flowpack/neos-frontendlogin": "~3.0",
         "neos/redirecthandler-neosadapter": "~2.0",
         "neos/redirecthandler-databasestorage": "~2.0",
+        "neos/kickstarter": "^4.1",
+        "neos/swiftmailer": "~6.0.0",
 
-        "neos/neos-ui": "^1.0@beta",
-        "neos/neos-ui-compiled": "^1.0@beta"
+
+        "neos/neos-ui": "~1.0@beta",
+        "neos/neos-ui-compiled": "~1.0@beta",
+
+        "flowpack/cachebuster": "~1.0",
+        "flownative/gravatar": "~2.0.0",
+        "flowpack/listable": "dev-master"
     },
     "require-dev": {
         "neos/buildessentials": "~4.1.0",
